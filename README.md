@@ -3,20 +3,6 @@
 ## Introduction
 Welcome to the sample code for ExaVault's PHP code library, which demonstrates how to use various aspects of our API with your ExaVault account. The PHP code library is available as a composer package and [on Github](https://github.com/ExaVault/evapi-php). The library is generated from our API's [public swagger YAML file](https://www.exavault.com/api/docs/evapi_2.0_public.yaml)
 
-The following scripts are included. Scripts that will make changes to your accounts are marked with an asterisk
-
-Script                        | Purpose    \*=Makes changes to your account when run                                   | APIs Used                      |
-------------------------------|----------------------------------------------------------------------------------------|--------------------------------|
-sample_add_notifications.php  | Add upload and download notifications<br/>_\*adds folders to your account_             | ResourcesApi, NotificationsApi |
-sample_add_user.php           | Add a new user with a home directory <br/>_\*adds a user and a folder to your account_ | UsersApi                       |
-sample_compress_files.php     | Compress several files into a zip file <br/>_\*adds files and folders to your account_ | ResourcesApi                   |
-sample_download_csv_files.php | Search for files matching a certain extension, then download them.                     | ResourcesApi                   |
-sample_get_account_info.php   | List the amount of available space for your account                                    | AccountApi                     |
-sample_get_failed_logins.php  | List usernames who had a failed login in the last 24 hours                             | ActivityApi                    |
-sample_list_users.php         | Generate a report of users in your account                                             | UsersApi                       |
-sample_shared_folder.php      | Create a new shared folder with a password<br />_\*adds a folder to your account_      | ResourcesApi, SharesApi        |
-sample_upload_files.php       | Upload a file to your account.<br />_\*uploads sample PDFS to your account_            | ResourcesApi                   |
-
 ## Requirements
 
 To run these scripts, you'll need PHP 5.5 (or greater) installed as well as [composer](https://getcomposer.org). 
@@ -85,6 +71,23 @@ If everything worked, the sample code will run and connect to your account. You'
 Account used: 40GB (11.4%)
 Total size: 350GB
 ```
+
+## Running Other Sample Files
+
+There are several other sample files that you can now run. You won't need to repeat the steps to set up the .env file each time - the same environment information is used for all of the sample scripts.
+Some of the sample scripts will make changes to your account (uploading, creating shares or notifications, etc). Those are marked with an asterisk below:
+
+Script                        | Purpose    \*=Makes changes to your account when run                                   | APIs Used                      |
+------------------------------|----------------------------------------------------------------------------------------|--------------------------------|
+sample_get_account_info.php   | List the amount of available space for your account                                    | AccountApi                     |
+sample_add_notifications.php  | Add upload and download notifications<br/>_\*adds folders to your account_             | ResourcesApi, NotificationsApi |
+sample_add_user.php           | Add a new user with a home directory <br/>_\*adds a user and a folder to your account_ | UsersApi                       |
+sample_compress_files.php     | Compress several files into a zip file <br/>_\*adds files and folders to your account_ | ResourcesApi                   |
+sample_download_csv_files.php | Search for files matching a certain extension, then download them.                     | ResourcesApi                   |
+sample_get_failed_logins.php  | List usernames who had a failed login in the last 24 hours                             | ActivityApi                    |
+sample_list_users.php         | Generate a report of users in your account                                             | UsersApi                       |
+sample_shared_folder.php      | Create a new shared folder with a password<br />_\*adds a folder to your account_      | ResourcesApi, SharesApi        |
+sample_upload_files.php       | Upload a file to your account.<br />_\*uploads sample PDFS to your account_            | ResourcesApi                   |
 
 ## If Something Goes Wrong
 
