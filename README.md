@@ -1,4 +1,4 @@
-# evapi-php-samples
+# ExaVault PHP API Sample Code - v2.0
 
 ## Introduction
 Welcome to the sample code for ExaVault's PHP code library, which demonstrates how to use various aspects of our API with your ExaVault account. The PHP code library is available as a composer package and [on Github](https://github.com/ExaVault/evapi-php). The library is generated from our API's [public swagger YAML file](https://www.exavault.com/api/docs/evapi_2.0_public.yaml)
