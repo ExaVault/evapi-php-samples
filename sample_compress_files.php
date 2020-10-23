@@ -36,9 +36,9 @@ $ACCOUNT_URL = $_ENV['ACCOUNT_URL'];
 
 // We have to override the default configuration of the API object with an updated host URL so that our code
 //  will reach the correct URL for the api. We have to override this setting for each of the API classes we use
-$resourcesApi = new Swagger\Client\Api\ResourcesApi(
+$resourcesApi = new ExaVault\Api\ResourcesApi(
     new GuzzleHttp\Client(),
-    (new Swagger\Client\Configuration())->setHost($ACCOUNT_URL)
+    (new ExaVault\Configuration())->setHost($ACCOUNT_URL)
 );
 
 // We will create a new folder tree for the demo. The top-level folder will have a different name each time you run this script
@@ -63,7 +63,7 @@ for ($i=1; $i < 6; $i++) {
         $result = $resourcesApi->uploadFile($API_KEY, $ACCESS_TOKEN, $target_filename, $target_size, $filename);    
 
         // We want to make an archive that contains the files we've uploaded
-        // The ResourcesApi::uploadFile method returns a \Swagger\Client\Model\ResourceResponse object
+        // The ResourcesApi::uploadFile method returns a \ExaVault\Model\ResourceResponse object
         // The ResourceResponse::getData method will give us a Resource object
         // The Resource::getId method will give us the resource ID of the newly uploaded file
         $compress_resources[] = "id:" . $result->getData()->getId();
@@ -94,7 +94,7 @@ try {
     ];   
     $result = $resourcesApi->compressFiles($API_KEY, $ACCESS_TOKEN, $requestBody);
 
-    // The ResourcesApi::compressFiles method returns a \Swagger\Client\Model\ResourceResponse object
+    // The ResourcesApi::compressFiles method returns a \ExaVault\Model\ResourceResponse object
     echo "Created archive at " . $result->getData()->getAttributes()->getPath() . PHP_EOL;
 
 } catch (Exception $e) {

@@ -33,14 +33,14 @@ $ACCOUNT_URL = $_ENV['ACCOUNT_URL'];
 
 // We have to override the default configuration of the API object with an updated host URL so that our code
 //  will reach the correct URL for the api. We have to override this setting for each of the API classes we use
-$resourcesApi = new Swagger\Client\Api\ResourcesApi(
+$resourcesApi = new ExaVault\Api\ResourcesApi(
     new GuzzleHttp\Client(),
-    (new Swagger\Client\Configuration())->setHost($ACCOUNT_URL)
+    (new ExaVault\Configuration())->setHost($ACCOUNT_URL)
 );
 
-$downloadApi = new Swagger\Client\Api\DownloadApi(
+$downloadApi = new ExaVault\Api\DownloadApi(
     new GuzzleHttp\Client(),
-    (new Swagger\Client\Configuration())->setHost($ACCOUNT_URL)
+    (new ExaVault\Configuration())->setHost($ACCOUNT_URL)
 );
 
 try {
@@ -53,7 +53,7 @@ try {
 
     $listResult = $resourcesApi->listResources($API_KEY, $ACCESS_TOKEN, "/Sample Files and Folders", null, 0, null, 'file', '*.csv');
 
-    // The ResourcesApi::listResources method returns a \Swagger\Client\Model\ResourceCollectionResponse object
+    // The ResourcesApi::listResources method returns a \ExaVault\Model\ResourceCollectionResponse object
     // See https://www.exavault.com/developer/api-docs/#operation/listResources for the response schema
 
     // The ResourceCollectionResponse::getReturnedResults method will indicate how many matching files are included

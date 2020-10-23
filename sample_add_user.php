@@ -33,9 +33,9 @@ $ACCOUNT_URL = $_ENV['ACCOUNT_URL'];
 //
 // We have to override the default configuration of the API object with an updated host URL so that our code
 //  will reach the correct URL for the api.
-$usersApi = new Swagger\Client\Api\UsersApi(
+$usersApi = new ExaVault\Api\UsersApi(
     new GuzzleHttp\Client(),
-    (new Swagger\Client\Configuration())->setHost($ACCOUNT_URL)
+    (new ExaVault\Configuration())->setHost($ACCOUNT_URL)
 );
 
 try {
@@ -61,7 +61,7 @@ try {
     // We have to pass the $API_KEY and $ACCESS_TOKEN with every API call. 
     $result = $usersApi->addUser($API_KEY, $ACCESS_TOKEN, $requestBody);
     
-    // The UsersApi::addUser method returns a \Swagger\Client\Model\UserResponse object
+    // The UsersApi::addUser method returns a \ExaVault\Model\UserResponse object
     // See https://www.exavault.com/developer/api-docs/#operation/addUser for the response body schema
     $userid = $result->getData()->getId();
 

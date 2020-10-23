@@ -33,9 +33,9 @@ $ACCOUNT_URL = $_ENV['ACCOUNT_URL'];
 // We are demonstrating the use of the ActivityApi, which can be used to retrieve session and webhook logs
 // We have to override the default configuration of the ActivityApi object with an updated host URL so that our code
 //  will reach the correct URL for the api.
-$apiInstance = new Swagger\Client\Api\ActivityApi(
+$apiInstance = new ExaVault\Api\ActivityApi(
     new GuzzleHttp\Client(),
-    (new Swagger\Client\Configuration())->setHost($ACCOUNT_URL)
+    (new ExaVault\Configuration())->setHost($ACCOUNT_URL)
 );
 
 
@@ -68,19 +68,19 @@ try {
 }
 
 // If we got this far without the program ending, our call to getSessionLogs succeeded and returned something
-// The call returns a \Swagger\Client\Model\SessionActivityResponse object
+// The call returns a \ExaVault\Model\SessionActivityResponse object
 // See https://www.exavault.com/developer/api-docs/#operation/getSessionLogs for the details of the response object
 
 $failed_logins = []; // Container to hold our info
 
-// The returned activity will be an array of \Swagger\Client\Model\SessionActivityEntry objects, which we can access
+// The returned activity will be an array of \ExaVault\Model\SessionActivityEntry objects, which we can access
 //   from the SessionActivityResponse::getData method
 $activity_logs = $listResult->getData();
 
 // Loop over the returned items, which should include only "Connect" operations, per our filters to the getSessionLogs call
 foreach ($activity_logs as $activity) {
     // Each SessionActivityEntry object has a getAttributes method that allows us to access the details for the 
-    //   logged activity, which will be a \Swagger\Client\Model\SessionActivityEntryAttributes object
+    //   logged activity, which will be a \ExaVault\Model\SessionActivityEntryAttributes object
 
     // The SessionActivityEntryAttributes object has accessors for username, client IP address, status, operation, etc
     if ($activity->getAttributes()->getStatus() == "failed") {

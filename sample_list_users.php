@@ -31,9 +31,9 @@ $ACCOUNT_URL = $_ENV['ACCOUNT_URL'];
 // We are demonstrating the use of the UsersApi, which can be used to retrieve user settings and create a report
 // We have to override the default configuration of the UserApi object with an updated host URL so that our code
 //  will reach the correct URL for the api.
-$apiInstance = new Swagger\Client\Api\UsersApi(
+$apiInstance = new ExaVault\Api\UsersApi(
     new GuzzleHttp\Client(),
-    (new Swagger\Client\Configuration())->setHost($ACCOUNT_URL)
+    (new ExaVault\Configuration())->setHost($ACCOUNT_URL)
 );
 
 // Array to store our results in
@@ -57,13 +57,13 @@ try {
 }
 
 // If we got this far without the program ending, our call to listUsers succeeded and returned something
-// The call returns a \Swagger\Client\Model\UserCollectionResponse object
+// The call returns a \ExaVault\Model\UserCollectionResponse object
 // See https://www.exavault.com/developer/api-docs/#operation/listUsers for the details of the response object
 
 $total_users_for_account = $listResult->getTotalResults();
 $total_users_retrieved = $listResult->getReturnedResults();
 
-// The returned users will be an array of \Swagger\Client\Model\User objects which we can access from the 
+// The returned users will be an array of \ExaVault\Model\User objects which we can access from the 
 //   UserCollectionResponse::getData method
 $users_retrieved = $listResult->getData();
 
@@ -89,7 +89,7 @@ foreach ($users_retrieved as $user) {
     $id = $user->getId();
     
     // The detailed data about the individual user is accessed through the User::getAttributes method
-    // which returns a \Swagger\Client\Model\UserAttributes object
+    // which returns a \ExaVault\Model\UserAttributes object
     $username           = $user->getAttributes()->getUsername();
     $nickname           = $user->getAttributes()->getNickname();
     $email              = $user->getAttributes()->getEmail();
@@ -105,7 +105,7 @@ foreach ($users_retrieved as $user) {
     // The access timestamp returns a non-standard value representing 'never'
     $last_logged_in = (substr($access_timestamp,0,4) === "0000" ? 'never' : $access_timestamp);
 
-    // The UserAttributes::getPermissions method returns a \Swagger\Client\Model\UserPermissions object,
+    // The UserAttributes::getPermissions method returns a \ExaVault\Model\UserPermissions object,
     //   which contains the true/false flags for each of the permissions available to a user
     //   See https://www.exavault.com/docs/account/04-users/00-introduction#managing-user-roles-and-permissions
     //

@@ -38,9 +38,9 @@ $ACCOUNT_URL = $_ENV['ACCOUNT_URL'];
 //
 // We have to override the default configuration of the API object with an updated host URL so that our code
 //  will reach the correct URL for the api. We have to override this setting for each of the API classes we use
-$resourcesApi = new Swagger\Client\Api\ResourcesApi(
+$resourcesApi = new ExaVault\Api\ResourcesApi(
     new GuzzleHttp\Client(),
-    (new Swagger\Client\Configuration())->setHost($ACCOUNT_URL)
+    (new ExaVault\Configuration())->setHost($ACCOUNT_URL)
 );
 
 try {
@@ -58,7 +58,7 @@ try {
     // We have to pass the $API_KEY and $ACCESS_TOKEN with every API call. 
     $result = $resourcesApi->addFolder($API_KEY, $ACCESS_TOKEN, $requestBody);
 
-    // The addFolder method of the ResourcesApi returns a \Swagger\Client\Model\ResourceResponse object
+    // The addFolder method of the ResourcesApi returns a \ExaVault\Model\ResourceResponse object
     // See https://www.exavault.com/developer/api-docs/#operation/addFolder for the details of the response object
     echo "Created new folder {$result->getData()->getAttributes()->getPath()}" . PHP_EOL;
     
@@ -66,7 +66,7 @@ try {
     $requestBody = (object) [ 'path' => $download_folder];   
     $result = $resourcesApi->addFolder($API_KEY, $ACCESS_TOKEN, $requestBody);
     
-    // The addFolder method of the ResourcesApi returns a \Swagger\Client\Model\ResourceResponse object
+    // The addFolder method of the ResourcesApi returns a \ExaVault\Model\ResourceResponse object
     // See https://www.exavault.com/developer/api-docs/#operation/addFolder for the details of the response object
     echo "Created new folder {$result->getData()->getAttributes()->getPath()}" . PHP_EOL;
 
@@ -80,9 +80,9 @@ try {
 //   and now we can use the NotificationsApi to create those
 // We have to override the default configuration of the API object with an updated host URL so that our code
 //  will reach the correct URL for the api.
-$notificationsApi = new Swagger\Client\Api\NotificationsApi(
+$notificationsApi = new ExaVault\Api\NotificationsApi(
     new GuzzleHttp\Client(),
-    (new Swagger\Client\Configuration())->setHost($ACCOUNT_URL)
+    (new ExaVault\Configuration())->setHost($ACCOUNT_URL)
 );
 
 try {

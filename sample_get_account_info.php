@@ -31,9 +31,9 @@ $ACCOUNT_URL = $_ENV['ACCOUNT_URL'];
 // We are demonstrating the use of the AccountAPI, which can be used to manage the account settings 
 // We have to override the default configuration of the AccountApi with an updated host URL so that our code
 //  will reach the correct URL for the api.
-$apiInstance = new Swagger\Client\Api\AccountApi(
+$apiInstance = new ExaVault\Api\AccountApi(
     new GuzzleHttp\Client(),
-    (new Swagger\Client\Configuration())->setHost($ACCOUNT_URL)
+    (new ExaVault\Configuration())->setHost($ACCOUNT_URL)
 );
 
 try {
@@ -41,7 +41,8 @@ try {
     // See https://www.exavault.com/developer/api-docs/#operation/getAccount for the details of this method
 
     // We must pass in our API Key and Access Token with every call, which we retrieved from the .env file above
-    $result = $apiInstance->getAccount($API_KEY, $ACCESS_TOKEN);
+    // We're also going to ask for the master user of the account to be included with the results
+    $result = $apiInstance->getAccount($API_KEY, $ACCESS_TOKEN, "masterUser");
 
 } catch (Exception $e) {
 
@@ -52,7 +53,7 @@ try {
 }
 
 // If we got this far without the program ending, our call to getAccount succeeded and returned something
-// The call returns a Swagger\Client\Model\AccountResponse object
+// The call returns a ExaVault\Model\AccountResponse object
 // See https://www.exavault.com/developer/api-docs/#operation/getAccount for the details of the response object
 
 // The AccountResponse object that we got back ($result) is composed of additional, nested objects
@@ -66,3 +67,9 @@ $account_current_size = $quota->getDiskUsed() / (1024 * 1024 * 1024);
 
 echo "Account used: " . round($account_current_size, 1) . "GB (" . round(((float)$account_current_size / $account_max_size) * 100, 1) . "%)" . PHP_EOL;
 echo "Total size: " . round($account_max_size, 1) . "GB" . PHP_EOL;
+
+foreach ($result->getIncluded() as $included) {
+    if ($included->getType() == "user") {
+        echo "Primary Email Address: " . $included->getAttributes()->getEmail() . PHP_EOL;
+    }
+}

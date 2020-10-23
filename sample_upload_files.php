@@ -38,9 +38,9 @@ $ACCOUNT_URL = $_ENV['ACCOUNT_URL'];
 //
 // We have to override the default configuration of the API object with an updated host URL so that our code
 //  will reach the correct URL for the api. We have to override this setting for each of the API classes we use
-$resourcesApi = new Swagger\Client\Api\ResourcesApi(
+$resourcesApi = new ExaVault\Api\ResourcesApi(
     new GuzzleHttp\Client(),
-    (new Swagger\Client\Configuration())->setHost($ACCOUNT_URL)
+    (new ExaVault\Configuration())->setHost($ACCOUNT_URL)
 );
 
 
@@ -57,7 +57,7 @@ try {
     //
     $result = $resourcesApi->uploadFile($API_KEY, $ACCESS_TOKEN, $target_filename, $target_size, $filename);
 
-    // The uploadFile method of the ResourcesApi returns a \Swagger\Client\Model\ResourceResponse object
+    // The uploadFile method of the ResourcesApi returns a \ExaVault\Model\ResourceResponse object
     // See https://www.exavault.com/developer/api-docs/#operation/uploadFile for the details of the response object
 
     // Verify that the uploaded file's reported size matches what we expected.
