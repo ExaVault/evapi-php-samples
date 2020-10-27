@@ -23,7 +23,7 @@ You should use composer to add the ExaVault PHP library to your project by runni
 This will install all the dependencies you need. It may take a while, but eventually you will see something like:
 
 ```
-Using version ^2.0 for exavault/evapi-php
+Using version ^2.1 for exavault/evapi-php
 ./composer.json has been created
 Loading composer repositories with package information
 Updating dependencies (including require-dev)
