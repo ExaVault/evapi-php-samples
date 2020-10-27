@@ -1,6 +1,6 @@
 {
     "require": {
-        "exavault/evapi-php": "~2.1",
+        "exavault/evapi-php": "~2",
         "vlucas/phpdotenv": "^5.2"
     }
 }

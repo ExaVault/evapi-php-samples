@@ -1,4 +1,4 @@
-# ExaVault PHP API Sample Code - v2.0
+# ExaVault PHP API Sample Code - v2.1.1
 
 ## Introduction
 Welcome to the sample code for ExaVault's PHP code library, which demonstrates how to use various aspects of our API with your ExaVault account. The PHP code library is available as a composer package and [on Github](https://github.com/ExaVault/evapi-php). The library is generated from our API's [public swagger YAML file](https://www.exavault.com/api/docs/evapi_2.0_public.yaml).
@@ -66,6 +66,7 @@ If everything worked, the sample code will run and connect to your account. You'
 % php sample_get_account_info.php
 Account used: 40GB (11.4%)
 Total size: 350GB
+Primary Email Address: tim@apple.com
 ```
 
 ## Running Other Sample Files
@@ -120,8 +121,7 @@ If you encounter any other issues running this sample code, you can contact ExaV
 
 ## Next Steps
 
-To get started writing your own code, you may either modify our samples, or download and install our library into your existing project via composer. For details, see the [evapi-php repo](https://github.com/ExaVault/evapi-php).
-
+To get started writing your own code, you may either modify our samples, or download and install our library into your existing project via composer. For details, see the [ExaVault PHP API Library repo](https://github.com/ExaVault/evapi-php).
 
 ## Author
 
