@@ -1,7 +1,7 @@
 # ExaVault PHP API Sample Code - v2.0
 
 ## Introduction
-Welcome to the sample code for ExaVault's PHP code library, which demonstrates how to use various aspects of our API with your ExaVault account. The PHP code library is available as a composer package and [on Github](https://github.com/ExaVault/evapi-php). The library is generated from our API's [public swagger YAML file](https://www.exavault.com/api/docs/evapi_2.0_public.yaml)
+Welcome to the sample code for ExaVault's PHP code library, which demonstrates how to use various aspects of our API with your ExaVault account. The PHP code library is available as a composer package and [on Github](https://github.com/ExaVault/evapi-php). The library is generated from our API's [public swagger YAML file](https://www.exavault.com/api/docs/evapi_2.0_public.yaml).
 
 ## Requirements
 
@@ -17,19 +17,15 @@ Some of the sample scripts will assume your account contains the **ExaVault Quic
 You should use composer to add the ExaVault PHP library to your project by running this command in your project folder:
 
 ```bash
-% composer require exavault/evapi-php 
+% composer install
 ```
 
 This will install all the dependencies you need. It may take a while, but eventually you will see something like:
 
 ```
-Using version ^2.0 for exavault/evapi-php
-./composer.json has been created
 Loading composer repositories with package information
-Updating dependencies (including require-dev)
-Package operations: ...
-  .... other information for various dependencies ...
-Writing lock file
+Updating dependencies
+   ... various dependencies are installed ...
 Generating autoload files
 ```
 
@@ -37,7 +33,7 @@ When composer says `Generating autoload files` all of the dependencies have been
 
 **Step 2 - Get your API Credentials** 
 
-The next step is to generate an API key and token from your ExaVault account. You'll need to log into the ExaVault web file manager, as an admin-level user, to get the API key and access token. See [our API reference documentation](https://www.exavault.com/developer/api-docs/v2/#section/Obtaining-Your-API-Key-and-Access-Token) for the step-by-step guide to create your key and/or token.  
+The next step is to generate an API key and token from your ExaVault account. You'll need to log into the ExaVault web file manager, as an admin-level user, to get the API key and access token. See [our API reference documentation](https://www.exavault.com/developer/api-docs/v2/#section/Obtaining-Your-API-Key-and-Access-Token) for the step-by-step guide to create your key and token.  
 
 If you are not an admin-level user of an ExaVault account, you'll need someone with admin-level access to follow the steps and give you the API key and access token.
 
@@ -122,33 +118,10 @@ Exception when calling AccountApi->getAccount: [401] Client error: `GET https://
 
 If you encounter any other issues running this sample code, you can contact ExaVault support for help at support@exavault.com.
 
-## Writing Your Own Code 
+## Next Steps
 
-When you're ready to write your own code, you can use our sample code as examples. You'll need to:
+To get started writing your own code, you may either modify our samples, or download and install our library into your existing project via composer. For details, see the [evapi-php repo](https://github.com/ExaVault/evapi-php).
 
-1. Install our code library using `composer require exavault/evapi-php`
-1. Add the line ```require_once(__DIR__ . '/vendor/autoload.php');``` to the top of your script
-1. You can use an .env file just like our sample scripts do, or just set variables within your scripts for your API key and access token
-1. Whenever you instantiate an Api object (ResourcesApi, UsersApi, etc.), override the configuration to point the code at the correct API URL:
-```php
-$account_url = "https://YOUR_ACCOUNT_NAME_HERE.exavault.com/api/v2/";
-$accountApi = new Swagger\Client\Api\AccountApi(
-    new GuzzleHttp\Client(),
-    (new Swagger\Client\Configuration())->setHost($account_url)
-);
-```
-```php
-$resourcesApi = new Swagger\Client\Api\ResourcesApi(
-    new GuzzleHttp\Client(),
-    (new Swagger\Client\Configuration())->setHost($account_url)
-);
-```
-```php
-$usersApi = new Swagger\Client\Api\UsersApi(
-    new GuzzleHttp\Client(),
-    (new Swagger\Client\Configuration())->setHost($account_url)
-);
-```
 
 ## Author
 
