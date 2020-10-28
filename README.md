@@ -1,4 +1,4 @@
-# ExaVault PHP API Sample Code - v2.1.1
+# ExaVault PHP API Sample Code - v2 API
 
 ## Introduction
 Welcome to the sample code for ExaVault's PHP code library, which demonstrates how to use various aspects of our API with your ExaVault account. The PHP code library is available as a composer package and [on Github](https://github.com/ExaVault/evapi-php). The library is generated from our API's [public swagger YAML file](https://www.exavault.com/api/docs/evapi_2.0_public.yaml).
@@ -117,7 +117,7 @@ Exception when calling AccountApi->getAccount: [401] Client error: `GET https://
 
 **Other problems with sample code**
 
-If you encounter any other issues running this sample code, you can contact ExaVault support for help at support@exavault.com.
+If you encounter any other issues running this sample code, you can contact ExaVault Support at support@exavault.com.
 
 ## Next Steps
 
