@@ -58,12 +58,12 @@ And save the file.
 Now you're ready to run your first sample. Try sample_get_account_info first
 
 ```bash
-% php sample_get_account_info.php
+% php sample-get-account-info.php
 ```
 If everything worked, the sample code will run and connect to your account. You'll see output similar to this:
 
 ```bash
-% php sample_get_account_info.php
+% php sample-get-account-info.php
 Account used: 40GB (11.4%)
 Total size: 350GB
 Primary Email Address: tim@apple.com
@@ -76,15 +76,15 @@ Some of the sample scripts will make changes to your account (uploading, creatin
 
 Script                        | Purpose    \*=Makes changes to your account when run                                   | APIs Used                      |
 ------------------------------|----------------------------------------------------------------------------------------|--------------------------------|
-sample_get_account_info.php   | List the amount of available space for your account                                    | AccountApi                     |
-sample_add_notifications.php  | Add upload and download notifications<br/>_\*adds folders to your account_             | ResourcesApi, NotificationsApi |
-sample_add_user.php           | Add a new user with a home directory <br/>_\*adds a user and a folder to your account_ | UsersApi                       |
-sample_compress_files.php     | Compress several files into a zip file <br/>_\*adds files and folders to your account_ | ResourcesApi                   |
-sample_download_csv_files.php | Search for files matching a certain extension, then download them.                     | ResourcesApi                   |
-sample_get_failed_logins.php  | List usernames who had a failed login in the last 24 hours                             | ActivityApi                    |
-sample_list_users.php         | Generate a report of users in your account                                             | UsersApi                       |
-sample_shared_folder.php      | Create a new shared folder with a password<br />_\*adds a folder to your account_      | ResourcesApi, SharesApi        |
-sample_upload_files.php       | Upload a file to your account.<br />_\*uploads sample PDFS to your account_            | ResourcesApi                   |
+sample-get-account-info.php   | List the amount of available space for your account                                    | AccountApi                     |
+sample-add-notifications.php  | Add upload and download notifications<br/>_\*adds folders to your account_             | ResourcesApi, NotificationsApi |
+sample-add-user.php           | Add a new user with a home directory <br/>_\*adds a user and a folder to your account_ | UsersApi                       |
+sample-compress-files.php     | Compress several files into a zip file <br/>_\*adds files and folders to your account_ | ResourcesApi                   |
+sample-download-csv-files.php | Search for files matching a certain extension, then download them.                     | ResourcesApi                   |
+sample-get-failed-logins.php  | List usernames who had a failed login in the last 24 hours                             | ActivityApi                    |
+sample-list-users.php         | Generate a report of users in your account                                             | UsersApi                       |
+sample-shared-folder.php      | Create a new shared folder with a password<br />_\*adds a folder to your account_      | ResourcesApi, SharesApi        |
+sample-upload-files.php       | Upload a file to your account.<br />_\*uploads sample PDFS to your account_            | ResourcesApi                   |
 
 ## If Something Goes Wrong
 
@@ -93,7 +93,7 @@ sample_upload_files.php       | Upload a file to your account.<br />_\*uploads s
 If running the sample script returns a PHP warning about your autoload file like the one shown below, you need to run the `composer install` command as described under **Step 1 - Install dependencies** 
 
 ```bash
-PHP Warning:  require_once(/samples/vendor/autoload.php): failed to open stream: No such file or directory in /samples/sample_get_account_info.php on line 2
+PHP Warning:  require_once(/vendor/autoload.php): failed to open stream: No such file or directory in /sample-get-account-info.php on line 2
 ```
 
 **Problem - PHP Fatal Error**
