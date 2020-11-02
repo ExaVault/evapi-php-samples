@@ -74,7 +74,7 @@ Primary Email Address: tim@apple.com
 There are several other sample files that you can now run. You won't need to repeat the steps to set up the .env file each time - the same environment information is used for all of the sample scripts.
 Some of the sample scripts will make changes to your account (uploading, creating shares or notifications, etc). Those are marked with an asterisk below:
 
-Script                        | Purpose    \*=Makes changes to your account when run                                   | APIs Used                      |
+Script                        | Purpose                                                                                | APIs Used                      |
 ------------------------------|----------------------------------------------------------------------------------------|--------------------------------|
 sample-get-account-info.php   | List the amount of available space for your account                                    | AccountApi                     |
 sample-add-notifications.php  | Add upload and download notifications<br/>_\*adds folders to your account_             | ResourcesApi, NotificationsApi |
