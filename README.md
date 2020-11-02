@@ -9,7 +9,7 @@ To run these scripts, you'll need PHP 5.5 (or greater) installed as well as [com
 
 You will also need an ExaVault account as well as and an API key and access token.
 
-Some of the sample scripts will assume your account contains the **ExaVault Quick Start.pdf** file and the **Sample Files and Folders** folder, which come pre-loaded with a new account. You may need to make changes to `sample_upload_files.php` and `sample_download_csv_files.php` if those files are not present.
+Some of the sample scripts will assume your account contains the **Sample Files and Folders** folder, which come pre-loaded with a new account. You may need to make changes to `sample-download-csv-files.php` if that folder is not present.
 
 ## Running Your First Sample
 **Step 1 - Install dependencies** 
@@ -55,7 +55,7 @@ And save the file.
 
 **Step 4 - Run the sample script**
 
-Now you're ready to run your first sample. Try sample_get_account_info first
+Now you're ready to run your first sample. Try `sample-get-account-info.php` first
 
 ```bash
 % php sample-get-account-info.php
@@ -84,7 +84,7 @@ sample-download-csv-files.php | Search for files matching a certain extension, t
 sample-get-failed-logins.php  | List usernames who had a failed login in the last 24 hours                             | ActivityApi                    |
 sample-list-users.php         | Generate a report of users in your account                                             | UsersApi                       |
 sample-shared-folder.php      | Create a new shared folder with a password<br />_\*adds a folder to your account_      | ResourcesApi, SharesApi        |
-sample-upload-files.php       | Upload a file to your account.<br />_\*uploads sample PDFS to your account_            | ResourcesApi                   |
+sample-upload-files.php       | Upload a file to your account.<br />_\*uploads sample jpgs to your account_            | ResourcesApi                   |
 
 ## If Something Goes Wrong
 

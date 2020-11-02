@@ -46,7 +46,7 @@ $parentFolder = "sample_compress_" . (new \DateTime())->format("U");
 
 // We are uploading a sample file provided along with this script.
 // It will have a different name in the account each time it is uploaded
-$filename = __DIR__ . "/files/ExaVault Quick Start.pdf";
+$filename = __DIR__ . "/files/dog.jpg";
 $target_size = filesize($filename);
 
 // We'll store the IDs, which we'll grab from the responses from new resource uploads, that we want to compress
@@ -54,7 +54,7 @@ $compress_resources = [];
 
 for ($i=1; $i < 6; $i++) {
     // We're  uploading the same file under different names to make sure we have multiple files in our target folder
-    $target_filename = "/{$parentFolder}/Quick Start {$i}.pdf";
+    $target_filename = "/{$parentFolder}/dog{$i}.jpg";
     try {
 
         // The uploadFile method of the ResourcesApi class will let us upload a file to our account
@@ -75,7 +75,7 @@ for ($i=1; $i < 6; $i++) {
 echo "Uploaded starting files to {$parentFolder}" . PHP_EOL;
 
 
-// If we got this far, we have a folder that contains 5 PDF files
+// If we got this far, we have a folder that contains 5 jpg files
 // Next we are going to use the same ResourcesApi to compress those files into a zip file
 // Compressing files doesn't remove the files from the account
 

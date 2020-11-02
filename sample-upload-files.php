@@ -48,8 +48,8 @@ try {
     
     // We are uploading a sample file provided along with this script.
     // It will have a different name in the account each time it is uploaded
-    $filename = __DIR__ . "/files/ExaVault Quick Start.pdf";
-    $target_filename = 'Quick Start' .  (new \DateTime())->format("U") . ".pdf";
+    $filename = __DIR__ . "/files/dog.jpg";
+    $target_filename = 'dog' .  (new \DateTime())->format("U") . ".jpg";
     $target_size = filesize($filename);
 
     // The uploadFile method of the ResourcesApi class will let us upload a file to our account
