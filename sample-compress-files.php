@@ -87,11 +87,11 @@ try {
     // See https://www.exavault.com/developer/api-docs/#operation/compressFiles for the request body schema
     //
     // This will overwrite an existing zip file with a new one
-    $requestBody = (object) [ 
+    $requestBody = new ExaVault\Model\CompressFilesRequestBody([
         "resources" => $compress_resources,
-        "parentResource" => "/",
-        "archiveName" => "zipped_files.zip"
-    ];   
+        "parent_resource" => "/",
+        "archive_name" => "zipped_files.zip"
+    ]);  
     $result = $resourcesApi->compressFiles($API_KEY, $ACCESS_TOKEN, $requestBody);
 
     // The ResourcesApi::compressFiles method returns a \ExaVault\Model\ResourceResponse object

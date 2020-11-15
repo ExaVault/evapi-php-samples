@@ -53,7 +53,7 @@ try {
 
     // API methods that take a JSON body, such as the addFolder method, require us to submit an object with the 
     // parameters we want to send to the API. This call requires a single parameter path
-    $requestBody = (object) [ 'path' => $upload_folder];   
+    $requestBody = new ExaVault\Model\AddFolderRequestBody([ 'path' => $upload_folder]);
 
     // We have to pass the $API_KEY and $ACCESS_TOKEN with every API call. 
     $result = $resourcesApi->addFolder($API_KEY, $ACCESS_TOKEN, $requestBody);
@@ -99,14 +99,14 @@ try {
     // - We could also have pulled the ID for the new folder out of the ResourceResponse object and used that 
     //   as a resource identifier here. For example, if the ID of the downloads folder is 23422, we could pass
     //   id:23422 in the resource parameter of this call.
-    $requestBody = (object) [ 
+    $requestBody = new \ExaVault\Model\AddNotificationRequestBody([ 
         'type' => 'folder',
         'resource' => $download_folder,
         'action' => 'download',
         'usernames' => ['notice_user_all'],
-        'sendEmail' => true
-    ];   
-
+        'send_email' => true
+    ]);
+  
     // We have to pass the $API_KEY and $ACCESS_TOKEN with every API call. 
     $result = $notificationsApi->addNotification($API_KEY, $ACCESS_TOKEN, $requestBody);
 
@@ -123,19 +123,19 @@ try {
     //   constants that can be used in the usernames array
     //   - We are sending the notification to a bunch of email addresses, rather than just our own
     //   - We have added an optional custom message to be included in each notification email
-    $requestBody = (object) [
+    $requestBody = new \ExaVault\Model\AddNotificationRequestBody([ 
         'type' => 'folder',
         'resource' => $upload_folder,
         'action' => 'upload',
         'usernames' => ['notice_user_all_users'],
-        'sendEmail' => true,
+        'send_email' => true,
         'recipients' => [
             'sally@example.com',
             'sidharth@example.com',
             'lgomez@example.com'
         ],
         'message' => 'Files have been uploaded into the main folder for you.'
-    ];   
+    ]);   
 
     // We have to pass the $API_KEY and $ACCESS_TOKEN with every API call. 
     $result = $notificationsApi->addNotification($API_KEY, $ACCESS_TOKEN, $requestBody);
