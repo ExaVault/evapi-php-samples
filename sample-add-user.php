@@ -48,7 +48,7 @@ try {
     $new_username = $API_KEY . "-" . (new \DateTime)->format("U");
     $requestBody = new ExaVault\Model\AddUserRequestBody([
         "username" => $new_username,
-        "home_resource" => "/Home directory for API Users",
+        "homeResource" => "/Home directory for API Users",
         "email" => "test@example.com",
         "password" => "99drowssaP",
         "role" => "user",
@@ -58,13 +58,13 @@ try {
             'modify' => true,
             'delete' => true,
             'list' => true,
-            'change_password' => true,
+            'changePassword' => true,
             'share' => true,
             'notification' => true,
-            'view_form_data' => false,
-            'delete_form_data' => false 
+            'viewFormData' => false,
+            'deleteFormData' => false 
         ]),
-        "time_zone" => "UTC",
+        "timeZone" => "UTC",
         "nickname" => "Created via the API",
         "welcomeEmail" => true,
     ]);

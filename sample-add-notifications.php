@@ -104,7 +104,7 @@ try {
         'resource' => $download_folder,
         'action' => 'download',
         'usernames' => ['notice_user_all'],
-        'send_email' => true
+        'sendEmail' => true
     ]);
   
     // We have to pass the $API_KEY and $ACCESS_TOKEN with every API call. 
@@ -128,7 +128,7 @@ try {
         'resource' => $upload_folder,
         'action' => 'upload',
         'usernames' => ['notice_user_all_users'],
-        'send_email' => true,
+        'sendEmail' => true,
         'recipients' => [
             'sally@example.com',
             'sidharth@example.com',
