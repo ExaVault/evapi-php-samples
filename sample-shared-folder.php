@@ -89,10 +89,7 @@ try {
     $requestBody = new ExaVault\Model\AddShareRequestBody([
         'type' => 'shared_folder',
         'name' => 'Share',
-        'accessMode' => [
-            'download',
-            'upload'
-        ],
+        'accessMode' => new ExaVault\Model\AccessMode([ 'download' => true, 'upload' => true ]),
         'resources' => [
             $folder_path
         ],
