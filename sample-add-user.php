@@ -46,17 +46,28 @@ try {
     //
     // We're going to use our API Key and a timestamp as the username because usernames must be unique
     $new_username = $API_KEY . "-" . (new \DateTime)->format("U");
-    $requestBody = (object) [ 
+    $requestBody = new ExaVault\Model\AddUserRequestBody([
         "username" => $new_username,
         "homeResource" => "/Home directory for API Users",
         "email" => "test@example.com",
         "password" => "99drowssaP",
         "role" => "user",
-        "permissions" => "download,upload,modify,list,changePassword,share,notification,delete",
+        "permissions" => new ExaVault\Model\UsersPermissions([
+            'download' => true,
+            'upload' => true,
+            'modify' => true,
+            'delete' => true,
+            'list' => true,
+            'changePassword' => true,
+            'share' => true,
+            'notification' => true,
+            'viewFormData' => false,
+            'deleteFormData' => false 
+        ]),
         "timeZone" => "UTC",
         "nickname" => "Created via the API",
         "welcomeEmail" => true,
-    ];   
+    ]);
 
     // We have to pass the $API_KEY and $ACCESS_TOKEN with every API call. 
     $result = $usersApi->addUser($API_KEY, $ACCESS_TOKEN, $requestBody);

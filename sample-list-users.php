@@ -93,7 +93,7 @@ foreach ($users_retrieved as $user) {
     $username           = $user->getAttributes()->getUsername();
     $nickname           = $user->getAttributes()->getNickname();
     $email              = $user->getAttributes()->getEmail();
-    $home_dir           = $user->getAttributes()->getHomeDir();
+    $home_dir           = $user->getAttributes()->getHomePath();
     $role               = $user->getAttributes()->getRole();
     $time_zone          = $user->getAttributes()->getTimeZone();
     $created            = $user->getAttributes()->getCreated()->format('M d, Y H:i:sa');

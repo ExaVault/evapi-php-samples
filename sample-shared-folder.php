@@ -49,7 +49,7 @@ try {
     
     // API methods that take a JSON body, such as the addFolder method, require us to submit an object with the 
     // parameters we want to send to the API. This call requires a single parameter path
-    $requestBody = (object) [ 'path' => $folder_path];   
+    $requestBody = new ExaVault\Model\AddFolderRequestBody([ 'path' => $folder_path ]);
 
     // We have to pass the $API_KEY and $ACCESS_TOKEN with every API call. 
     $result = $resourcesApi->addFolder($API_KEY, $ACCESS_TOKEN, $requestBody);
@@ -86,19 +86,15 @@ try {
     // - We could also have pulled the ID for the new folder out of the ResourceResponse object and used that 
     //   as a resource identifier here. For example, if the ID of the new folder is 23422, we could pass
     //   id:23422 in the resource parameter of this call.
-    $requestBody = (object) [ 
+    $requestBody = new ExaVault\Model\AddShareRequestBody([
         'type' => 'shared_folder',
         'name' => 'Share',
-        'accessMode' => [
-            'download',
-            'upload'
-        ],
+        'accessMode' => new ExaVault\Model\AccessMode([ 'download' => true, 'upload' => true ]),
         'resources' => [
             $folder_path
         ],
-        'action' => 'download',
-        'password' => '99drowssaP?'
-    ];   
+         'password' => '99drowssaP?'
+    ]);
 
     // We have to pass the $API_KEY and $ACCESS_TOKEN with every API call. 
     $result = $sharesApi->addShare($API_KEY, $ACCESS_TOKEN, $requestBody);
